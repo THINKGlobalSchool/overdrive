@@ -59,8 +59,7 @@ function overdrive_authenticate($username, $password) {
  * @param $message mixed Optional message
  */
 function overdrive_response(int $status, $message = NULL) {
-	$xml = new SimpleXMLElement('<xml version="1.0"/>');
-	$response = $xml->addChild('AuthorizeResponse');
+	$response = new SimpleXMLElement('<AuthorizeResponse/>');
 	$response->addChild('Status', $status);
 
 	// If positive status and a message was provided, output it
@@ -72,5 +71,5 @@ function overdrive_response(int $status, $message = NULL) {
 	}
 
 	Header('Content-type: text/xml');
-	print($xml->asXML());
+	print($response->asXML());
 }

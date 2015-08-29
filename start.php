@@ -31,13 +31,13 @@ function overdrive_init() {
 function overdrive_page_handler($page) {
 	switch ($page[0]) {
 		case 'authenticate':
-			// Force HTTPS
-			if($_SERVER['SERVER_PORT'] != 443) {
-				$ssl_root = str_replace('http://','https://', elgg_get_site_url());
-				header("HTTP/1.1 301 Moved Permanently");
-				header("Location: " . $ssl_root . "overdrive/authenticate");
-				exit();
-			}
+			// // Force HTTPS
+			// if($_SERVER['SERVER_PORT'] != 443) {
+			// 	$ssl_root = str_replace('http://','https://', elgg_get_site_url());
+			// 	header("HTTP/1.1 301 Moved Permanently");
+			// 	header("Location: " . $ssl_root . "overdrive/authenticate");
+			// 	exit();
+			// }
 			// Get username/password from querystring (librarycard/pin)
 			$username = get_input('LibraryCard');
 			$password = get_input('PIN');
